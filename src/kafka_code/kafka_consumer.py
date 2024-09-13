@@ -5,9 +5,10 @@ import boto3
 from s3fs import S3FileSystem
 from kafka import KafkaConsumer
 from json import loads
+import sys, types, json
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 from helpers.helpers import CodeHelper
 from helpers.config import get_settings
-import sys, types, json
 # if you got this issue while importing from kafka: ModuleNotFoundError: No module named 'kafka.vendor.six.moves'
 # try this code:
 import sys, types
@@ -38,7 +39,7 @@ class S3KafkaConsumer:
         self.s3_client = self.session.client('s3')
 
         # Create an S3FileSystem instance
-        self.s3 = S3FileSystem(key=self.aws_access_key_id, secret=self.aws_secret_access_key)
+        self.s3 = S3FileSystem(key=self.aws_access_key_id, secret=self.aws_secret_access_key, client_kwargs={'region_name': self.region_name})
 
         # Create Kafka consumer
         self.consumer = KafkaConsumer(
@@ -50,13 +51,13 @@ class S3KafkaConsumer:
     def process_messages(self):
         self.logger.log_info(f"Starting to consume messages from {self.kafka_topic}")
         for count, message in enumerate(self.consumer):
-            try:
-                s3_path = f"s3://{self.s3_bucket}/rental_data{count}.json"
-                with self.s3.open(s3_path, 'w') as file:
-                    json.dump(message.value, file)
-                self.logger.log_info(f"Saved message {count} to {s3_path}")
-            except Exception as e:
-                self.logger.log_error(f"Error processing message {count}: {str(e)}")
+            # try:
+            s3_path = f"s3://{self.s3_bucket}/rental_data{count}.json"
+            with self.s3.open(s3_path, 'w') as file:
+                json.dump(message.value, file)
+            self.logger.log_info(f"Saved message {count} to {s3_path}")
+            # except Exception as e:
+            #     self.logger.log_error(f"Error processing message {count}: {str(e)}")
 
     def run(self):
         try:

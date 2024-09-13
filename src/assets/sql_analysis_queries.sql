@@ -1,3 +1,5 @@
+-- Description: SQL queries for data analysis
+
 -- 1. Basic statistics for numerical columns
 SELECT 
     AVG(CAST(Prix AS DOUBLE)) AS avg_price,

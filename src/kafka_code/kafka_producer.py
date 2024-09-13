@@ -6,12 +6,13 @@ from kafka import KafkaProducer
 import psycopg2
 from psycopg2 import sql
 import json
+import sys, types
 from decimal import Decimal
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) 
 from helpers.helpers import CodeHelper
 from helpers.config import get_settings
 # if you got this issue while importing from kafka: ModuleNotFoundError: No module named 'kafka.vendor.six.moves'
 # try this code:
-import sys, types
 m = types.ModuleType('kafka.vendor.six.moves', 'Mock module')
 setattr(m, 'range', range)
 sys.modules['kafka.vendor.six.moves'] = m

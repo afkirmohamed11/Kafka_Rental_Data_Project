@@ -1,3 +1,5 @@
+-- SQL Script for creating the database table
+
 CREATE TABLE rental_data_table (
     Prix NUMERIC(10, 2),
     Type_De_Bien INTEGER,

@@ -1,7 +1,7 @@
 # Kafka Rental Data Pipeline Project
 
 ## Architecture Overview
-<img width="769" alt="image" src="src/imagess/architecture.png"  style="margin-bottom: 15px;">
+<img width="769" alt="image" src="src/images/architecture.png"  style="margin-bottom: 15px;">
 
 This project aims to create a real-time data pipeline for processing and analyzing Moroccan rental data. It involves extracting data from a postgresql database, streaming it through Apache Kafka, storing it in Amazon S3, and then making it available for SQL-based analysis using Amazon Athena.
 
@@ -16,6 +16,7 @@ This project aims to create a real-time data pipeline for processing and analyzi
 - **AWS Glue Data Catalog**: Stores metadata about the datasets, making them discoverable and queryable.
 - **Amazon Athena**: Provides a serverless query service to analyze data directly in **Amazon S3** using standard SQL.
 - **SQL**: Used for data analysis on the **Athena** tables, allowing for complex queries on the processed rental data.
+
 
 This architecture allows for a scalable, serverless approach to process rental data in real-time, from ingestion through to analysis, leveraging various AWS services for data storage, processing, and querying.
 
@@ -183,6 +184,12 @@ If you don't have permission to write data from your local machine to your S3 bu
 }
 ```
 <br>
+
+### Note:
+
+- Ensure to run both Python Kafka scripts simultaneously (kafka_producer.py and kafka_consumer.py).
+- Find the SQL analysis queries in `src/assets/sql_analysis_queries.sql` and try them out in the Athena service.
+- Find the SQL script for creating the PostgreSQL database table in `src/assets/sql_creation_script.sql`.
 
 ## Connect and Collaborate
 
