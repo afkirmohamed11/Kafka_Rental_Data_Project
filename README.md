@@ -185,5 +185,7 @@ If you don't have permission to write data from your local machine to your S3 bu
 
 ## Connect and Collaborate
 
-Feel free to connect and collaborate on [LinkedIn](https://www.linkedin.com/in/mohamed-afkir-1bbb9729a)!
+Feel free to connect and collaborate on [LinkedIn](https://www.linkedin.com/in/mohamed-afkir-1bbb9729a)!<br>
+or contact me via email at [email](mailto:mohamedafkir078@gmail.com)!
+
 
