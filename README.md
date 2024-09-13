@@ -1,7 +1,7 @@
 # Kafka Rental Data Pipeline Project
 
 ## Architecture Overview
-[Project Architecture](./src/images/architecture.png)
+<img width="769" alt="image" src="src/images/architecture.png">
 
 This project aims to create a real-time data pipeline for processing and analyzing Moroccan rental data. It involves extracting data from a database, streaming it through Apache Kafka, storing it in Amazon S3, and then making it available for SQL-based analysis using Amazon Athena.
 ### Tech stack:
