@@ -1,4 +1,5 @@
 .env
 log.txt
+/assets/kafka_helpful_commands.txt
 /assets/firstparkey.pem
-/assets/kafka_commands.txt
+/imagess/
