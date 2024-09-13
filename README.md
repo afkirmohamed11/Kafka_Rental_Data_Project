@@ -1,25 +1,61 @@
 # Kafka Rental Data Pipeline Project
 
 ## Architecture Overview
-<img width="769" alt="image" src="src/images/architecture.png">
+<img width="769" alt="image" src="src/images/architecture.png"  style="margin-bottom: 15px;">
 
-This project aims to create a real-time data pipeline for processing and analyzing Moroccan rental data. It involves extracting data from a database, streaming it through Apache Kafka, storing it in Amazon S3, and then making it available for SQL-based analysis using Amazon Athena.
-### Tech stack:
+This project aims to create a real-time data pipeline for processing and analyzing Moroccan rental data. It involves extracting data from a postgresql database, streaming it through Apache Kafka, storing it in Amazon S3, and then making it available for SQL-based analysis using Amazon Athena.
 
-- PostgreSQL: Serves as the primary data source, likely containing the rental data.
-- Python: Used for creating Kafka producers and consumers, facilitating data extraction from the database and ingestion into the Kafka stream.
-- Apache Kafka: Enables real-time data processing and streaming, hosted on an Amazon EC2 instance.
-- Amazon EC2: Hosts the Apache Kafka cluster, providing scalable compute capacity in the cloud.
-- Amazon S3: Acts as a data lake, storing the processed data from Kafka for further analysis.
-- AWS Glue Crawler: Automatically discovers and catalogs metadata from data stored in Amazon S3.
-- AWS Glue Data Catalog: Stores metadata about the datasets, making them discoverable and queryable.
-- Amazon Athena: Provides a serverless query service to analyze data directly in Amazon S3 using standard SQL.
-- SQL: Used for data analysis on the Athena tables, allowing for complex queries on the processed rental data.
+### Technology Stack
+
+- **PostgreSQL**: Serves as the primary data source, likely containing the rental data.
+- **Python**: Used for creating Kafka producers and consumers, facilitating data extraction from the database and ingestion into the Kafka stream.
+- **Apache Kafka**: Enables real-time data processing and streaming, hosted on an **Amazon EC2** instance.
+- **Amazon EC2**: Hosts the **Apache Kafka** cluster, providing scalable compute capacity in the cloud.
+- **Amazon S3**: Acts as a data lake, storing the processed data from **Kafka** for further analysis.
+- **AWS Glue Crawler**: Automatically discovers and catalogs metadata from data stored in **Amazon S3**.
+- **AWS Glue Data Catalog**: Stores metadata about the datasets, making them discoverable and queryable.
+- **Amazon Athena**: Provides a serverless query service to analyze data directly in **Amazon S3** using standard SQL.
+- **SQL**: Used for data analysis on the **Athena** tables, allowing for complex queries on the processed rental data.
 
 This architecture allows for a scalable, serverless approach to process rental data in real-time, from ingestion through to analysis, leveraging various AWS services for data storage, processing, and querying.
 
+
+
 # Installation
 
+## Requirements
+- Python 3.12 (it may work with earlier versions)
+### Install Python using MiniConda
+
+1) Download and install MiniConda from [here](https://docs.anaconda.com/free/miniconda/#quick-command-line-install)
+2) Create a new environment using the following command:
+```bash
+> conda create -n kafka-rental-data-pipeline python = 3.12
+```
+3) Activate the environment:
+```bash
+> conda activate kafka-rental-data-pipeline
+```
+
+### Install the required packages
+
+```bash
+> pip install -r requirements.txt
+```
+
+### Setup the environment variables
+
+```bash
+> copy .env.example .env
+```
+
+Set your environment variables in the `.env` file. Like `AWS_ACCESS_KEY_ID` value.
+### Log file
+
+```bash
+> copy log.example.txt log.txt
+```
+<br> 
 
 ## Kafka Setup on AWS
 
@@ -36,7 +72,7 @@ This guide provides step-by-step instructions for setting up and running Apache 
 2. Connect to your EC2 instance:
 
 ```
-ssh ...  # (Add your specific ssh command here)
+ssh -i "path/to/your/file.pem ... # (Add your specific ssh command here)
 ```
 
 ### Installing Kafka
@@ -128,7 +164,8 @@ Remember to replace placeholders (like `<YOUR_PUBLIC_IP>`) with your actual valu
 
 ### S3 bucket Connection Setup
 
-If you don't have the permission to write data from your local machine to your S3 bucket, try adding this permissions
+If you don't have permission to write data from your local machine to your S3 bucket, try adding these permissions:
+
 
 ```json
 {
