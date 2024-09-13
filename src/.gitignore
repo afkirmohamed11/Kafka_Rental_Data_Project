@@ -1,5 +1,3 @@
-images/
-./firstparkey.pem
 .env
 log.txt
 /assets/firstparkey.pem
