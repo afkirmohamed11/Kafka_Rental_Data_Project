@@ -1,3 +1,4 @@
 .env
 log.txt
 /assets/firstparkey.pem
+/assets/kafka_commands.txt
