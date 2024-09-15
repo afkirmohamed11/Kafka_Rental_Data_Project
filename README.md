@@ -1,4 +1,4 @@
-# Kafka Rental Data Pipeline Project
+# Kafka Rental Streaming Data Pipeline
 
 ## Architecture Overview
 <img width="769" alt="image" src="src/images/architecture.png"  style="margin-bottom: 15px;">
