@@ -6,7 +6,7 @@
 This project aims to create a real-time data pipeline for processing and analyzing Moroccan rental data. It involves extracting data from a postgresql database, streaming it through Apache Kafka, storing it in Amazon S3, and then making it available for SQL-based analysis using Amazon Athena.
 
 ### Technology Stack
-
+- **Terraform**: To provision the infrastrcture needed for the project 
 - **PostgreSQL**: Serves as the primary data source, likely containing the rental data.
 - **Python**: Used for creating Kafka producers and consumers, facilitating data extraction from the database and ingestion into the Kafka stream.
 - **Apache Kafka**: Enables real-time data processing and streaming, hosted on an **Amazon EC2** instance.
