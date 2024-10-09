@@ -1,4 +1,4 @@
-# Kafka Rental Data Pipeline Project
+# Kafka Rental Streaming Data Pipeline
 
 ## Architecture Overview
 <img width="769" alt="image" src="src/images/architecture2.png"  style="margin-bottom: 15px;">
@@ -20,7 +20,8 @@ This project aims to create a real-time data pipeline for processing and analyzi
 
 This architecture allows for a scalable, serverless approach to process rental data in real-time, from ingestion through to analysis, leveraging various AWS services for data storage, processing, and querying.
 
-
+### **Note**:
+- The data was scraped from a Moroccan website some time ago, transformed using Pandas, and loaded into a PostgreSQL database. This preprocessing step is not part of the current pipeline but provides the initial data source for the streaming architecture described above.
 
 # Installation
 
