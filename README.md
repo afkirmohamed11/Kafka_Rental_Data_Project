@@ -1,7 +1,7 @@
 # Kafka Rental Data Pipeline Project
 
 ## Architecture Overview
-<img width="769" alt="image" src="src/images/architecture.png"  style="margin-bottom: 15px;">
+<img width="769" alt="image" src="src/images/architecture2.png"  style="margin-bottom: 15px;">
 
 This project aims to create a real-time data pipeline for processing and analyzing Moroccan rental data. It involves extracting data from a postgresql database, streaming it through Apache Kafka, storing it in Amazon S3, and then making it available for SQL-based analysis using Amazon Athena.
 
@@ -147,6 +147,35 @@ bin/kafka-console-producer.sh --topic rental_data_topic --bootstrap-server <YOUR
 cd kafka_2.12-3.6.1
 bin/kafka-console-consumer.sh --topic rental_data_topic --bootstrap-server <YOUR_PUBLIC_IP>:9092
 ```
+## On AWS also
+1. Create an S3 bucket
+2. Use AWS Glue to create a crawler and a database
+
+## Alternatively, you can automate resource provisioning using Terraform
+- Suppose you have already a created user within your AWS account with the privileges needed.
+- Run the following commands:
+
+```
+> cd src/terraform
+```
+
+```
+> terraform init --var-file="terraform.tfvars"
+```
+
+```
+> terraform plan --var-file="terraform.tfvars"
+```
+
+```
+> terraform apply --var-file="terraform.tfvars"
+```
+
+- If you want to remove the resources, type:
+```
+> terraform destory --var-file="terraform.tfvars"
+```
+- Want to learn more about Terraform, I highly recommand this [blog](https://jhooq.com/terraform-index/) <br>
 
 ### Troubleshooting
 
